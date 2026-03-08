@@ -7,10 +7,11 @@
 </head>
 <body>
     <div class="cyber-panel">
-        <h2 id="panelTitle">Congratulations</h2>
+        <h2 id="panelTitle">Login</h2>
         <p id="panelText">Enter your credentials to access the grid.</p>
         <div id="inputArea">
             <input type="text" id="nameInput" placeholder="USERNAME">
+            <input type="text" placeholder="PASSWORD">
         
         <button onclick="submit()">AUTHENTICATE</button>
         </div>
@@ -20,8 +21,8 @@
     async function submit(){
         const name = document.getElementById('nameInput').value.trim()
         // UPDATE THE SCREEN WITH A PERSONALIZED MESSAGE
-        document.getElementById('panelTitle').innerText = "Important Hint";
-        document.getElementById('panelText').innerHTML = "Congratulations, <strong style='color: #00ff00;'>" + name + "</strong>.<br><br>Ap ka sath prank go gya ha... Keep Trying";
+        document.getElementById('panelTitle').innerText = "Honeypot";
+        document.getElementById('panelText').innerHTML = "<strong style='color: #00ff00;'>" + name + "</strong><br><br> This is not real admin panel";
                 
         // Hide the input box and button so they can't submit twice
         document.getElementById('inputArea').style.display = 'none';
