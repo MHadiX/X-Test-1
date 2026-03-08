@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>X GROUP CORE</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="cyber-panel" id="mainPanel" style="border-top-color: #ff2a4b;">
+        <h2 id="panelTitle" style="color: #ff2a4b;">TERMINAL UNLOCKED</h2>
+        <p id="panelText">You found the core directory.<br>Enter your exact name to log your completion.</p>
+        
+        <div id="inputArea">
+            <input type="text" id="nameInput" placeholder="ENTER YOUR NAME">
+            <button style="border-color: #ff2a4b; color: white;" onclick="submitFlag()">SUBMIT FLAG</button>
+        </div>
+    </div>
+
+    <script>
+        async function submitFlag() {
+            // Grab the name input
+            const name = document.getElementById('nameInput').value.trim();
+            
+            if (!name) {
+                alert("Error: Please enter your name.");
+                return;
+            }
+
+            const timestamp = new Date().toLocaleString();
+            const webhookUrl = "https://discord.com/api/webhooks/1480232689196994664/zcw6SHDdWVtI_YYQEDpXRKU_AmPkFMZA8cYAbU_WzebrhDQdltO6hJnKaER_LoCvWszE"; 
+
+            const payload = {
+                content: "🚩 **New Flag Captured!**",
+                embeds: [{
+                    title: "Core Admin Panel Breached",
+                    color: ff2a4b, // Green
+                    fields: [
+                        { name: "Operator Name", value: name, inline: true },
+                        { name: "Time Completed", value: timestamp, inline: true }
+                    ],
+                    footer: { text: "X Group Digital Logging System" }
+                }]
+            };
+
+            try {
+                // Send data to Discord
+                await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                // UPDATE THE SCREEN WITH A PERSONALIZED MESSAGE
+                document.getElementById('panelTitle').innerText = "MISSION ACCOMPLISHED";
+                document.getElementById('panelText').innerHTML = "Congratulations, <strong style='color: #00ff00;'>" + name + "</strong>.<br><br>Your completion time has been logged directly to the server. You may now close this terminal.";
+                
+                // Hide the input box and button so they can't submit twice
+                document.getElementById('inputArea').style.display = 'none';
+
+            } catch (error) {
+                console.error("Webhook connection error.", error);
+                alert("System Error: Could not reach the logging server.");
+            }
+        }
+    </script>
+</body>
+</html>
