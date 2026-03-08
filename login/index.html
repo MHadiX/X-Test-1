@@ -7,11 +7,24 @@
 </head>
 <body>
     <div class="cyber-panel">
-        <h2>PORTAL LOGIN</h2>
-        <p>Enter your credentials to access the grid.</p>
-        <input type="text" placeholder="USERNAME">
-        <input type="password" placeholder="PASSWORD">
-        <button onclick="alert('SECURITY ALERT: This is a honeypot. Your IP has been logged.')">AUTHENTICATE</button>
+        <h2 id="panelTitle">Congratulations</h2>
+        <p id="panelText">Enter your credentials to access the grid.</p>
+        <div id="inputArea">
+            <input type="text" id="nameInput" placeholder="USERNAME">
+        
+        <button onclick="submit()">AUTHENTICATE</button>
+        </div>
     </div>
 </body>
+<script>
+    async function submit(){
+        const name = document.getElementById('nameInput').value.trim()
+        // UPDATE THE SCREEN WITH A PERSONALIZED MESSAGE
+        document.getElementById('panelTitle').innerText = "Important Hint";
+        document.getElementById('panelText').innerHTML = "Congratulations, <strong style='color: #00ff00;'>" + name + "</strong>.<br><br>Ap ka sath prank go gya ha... Keep Trying";
+                
+        // Hide the input box and button so they can't submit twice
+        document.getElementById('inputArea').style.display = 'none';
+    }
+    </script>
 </html>
