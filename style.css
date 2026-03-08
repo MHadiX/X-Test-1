@@ -1,0 +1,100 @@
+/* X GROUP DIGITAL - BRAND MATCH THEME */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+    /* === CHANGE THESE HEX CODES TO MATCH XGROUP.DIGITAL EXACTLY === */
+    --brand-bg: #0a0a0c;         /* Your website's main background color */
+    --brand-panel: #121216;      /* The color of cards or slightly lighter areas */
+    --brand-accent: #ff2a4b;     /* Your main brand color (e.g., Red, Blue, etc.) */
+    --brand-accent-hover: #ff4d68; /* Slightly lighter version of your accent */
+    
+    --text-main: #f8f9fa;        /* Main heading text color */
+    --text-muted: #8b8d98;       /* Paragraph / subtext color */
+    --border-line: #272730;      /* Subtle border colors */
+    /* ============================================================== */
+}
+
+body {
+    background-color: var(--brand-bg);
+    color: var(--text-main);
+    /* 'Inter' for clean corporate look, 'JetBrains Mono' for terminal inputs */
+    font-family: 'Inter', sans-serif; 
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    letter-spacing: 0.5px;
+}
+
+/* The Main Card */
+.cyber-panel {
+    background: var(--brand-panel);
+    border: 1px solid var(--border-line);
+    border-radius: 8px; /* Remove this if your site uses sharp/square corners */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    width: 400px;
+    text-align: center;
+}
+
+/* Headings */
+h1, h2 {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    color: var(--text-main);
+}
+
+p {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Form Inputs - Terminal Style */
+input[type="text"], input[type="password"] {
+    width: 85%;
+    background: var(--brand-bg);
+    border: 1px solid var(--border-line);
+    border-radius: 4px;
+    color: var(--text-main);
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    font-family: 'JetBrains Mono', monospace; /* Tech vibe for inputs */
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    border-color: var(--brand-accent);
+    box-shadow: 0 0 0 3px rgba(255, 42, 75, 0.15); /* Adjust rgba to match your accent */
+}
+
+/* Call to Action Buttons */
+button {
+    background: var(--brand-accent);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 14px 35px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    width: 100%;
+}
+
+button:hover {
+    background: var(--brand-accent-hover);
+}
+
+/* Utility Classes for fake pages */
+.text-error { color: #ff3333; font-family: 'JetBrains Mono', monospace; }
+.text-accent { color: var(--brand-accent); }
